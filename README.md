@@ -367,5 +367,6 @@ Save to PreferencesManager
 ---
 
 **Happy Learning! 🎉**
-#   L o g i n - S i g n u p - M V V M - J e t P a c k - C o m p o s e  
+#   L o g i n - S i g n u p - M V V M - J e t P a c k - C o m p o s e 
+ 
  
