@@ -73,7 +73,7 @@ fun SignUpScreen(
                         Modifier.fillMaxSize()
                                 .padding(paddingValues)
                                 .padding(24.dp)
-                                .verticalScroll(rememberScrollState()),
+                                .verticalScroll(rememberScrollState()).imePadding(),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
         ) {

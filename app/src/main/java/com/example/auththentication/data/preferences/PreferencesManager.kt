@@ -23,13 +23,12 @@ import javax.inject.Singleton
 class PreferencesManager @Inject constructor(@ApplicationContext context: Context) {
 
     private val sharedPreferences: SharedPreferences =
-            context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
+        context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
 
     companion object {
         private const val PREF_NAME = "auth_preferences"
         private const val KEY_IS_LOGGED_IN = "is_logged_in"
         private const val KEY_USER_NAME = "user_name"
-        private const val KEY_USER_EMAIL = "user_email"
     }
 
     /** Save login status and user details after successful login */
@@ -37,7 +36,6 @@ class PreferencesManager @Inject constructor(@ApplicationContext context: Contex
         sharedPreferences.edit().apply {
             putBoolean(KEY_IS_LOGGED_IN, isLoggedIn)
             putString(KEY_USER_NAME, userName)
-            putString(KEY_USER_EMAIL, userEmail)
             apply() // Asynchronous save
         }
     }
@@ -52,10 +50,7 @@ class PreferencesManager @Inject constructor(@ApplicationContext context: Contex
         return sharedPreferences.getString(KEY_USER_NAME, "") ?: ""
     }
 
-    /** Get logged-in user's email */
-    fun getUserEmail(): String {
-        return sharedPreferences.getString(KEY_USER_EMAIL, "") ?: ""
-    }
+
 
     /** Clear all data on logout */
     fun clearLoginData() {

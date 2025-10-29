@@ -1,0 +1,23 @@
+// ADD THESE DEPENDENCIES FOR FIREBASE
+// (Keep all existing dependencies)
+
+dependencies {
+    // ... existing dependencies ...
+
+    // Firebase BOM (Bill of Materials) - manages Firebase versions
+    implementation(platform("com.google.firebase:firebase-bom:33.6.0"))
+    
+    // Firebase Authentication
+    implementation("com.google.firebase:firebase-auth-ktx")
+    
+    // Firebase Firestore (for storing user data)
+    implementation("com.google.firebase:firebase-firestore-ktx")
+    
+    // Coroutines support for Firebase
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.3")
+    
+    // REMOVE THESE (Room Database dependencies):
+    // implementation(libs.room.runtime)
+    // implementation(libs.room.ktx)
+    // ksp(libs.room.compiler)
+}

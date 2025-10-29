@@ -1,9 +1,8 @@
-package com.example.auththentication.data.repository
+package com.example.auththentication.domain.repository
 
 import com.example.auththentication.data.local.dao.UserDao
 import com.example.auththentication.data.local.entity.UserEntity
 import com.example.auththentication.domain.model.User
-import com.example.auththentication.domain.repository.AuthRepository
 import javax.inject.Inject
 
 /**
@@ -34,11 +33,11 @@ class AuthRepositoryImpl @Inject constructor(private val userDao: UserDao) : Aut
 
             // Convert domain model to entity
             val userEntity =
-                    UserEntity(
-                            email = user.email,
-                            fullName = user.fullName,
-                            password = user.password
-                    )
+                UserEntity(
+                    email = user.email,
+                    fullName = user.fullName,
+                    password = user.password
+                )
 
             // Save to database
             userDao.insertUser(userEntity)
@@ -61,11 +60,11 @@ class AuthRepositoryImpl @Inject constructor(private val userDao: UserDao) : Aut
             if (userEntity != null) {
                 // Convert entity to domain model
                 val user =
-                        User(
-                                email = userEntity.email,
-                                fullName = userEntity.fullName,
-                                password = userEntity.password
-                        )
+                    User(
+                        email = userEntity.email,
+                        fullName = userEntity.fullName,
+                        password = userEntity.password
+                    )
                 Result.success(user)
             } else {
                 Result.failure(Exception("Invalid email or password"))

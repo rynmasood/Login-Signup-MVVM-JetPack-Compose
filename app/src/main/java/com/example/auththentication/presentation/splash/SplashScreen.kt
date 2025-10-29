@@ -3,6 +3,8 @@ package com.example.auththentication.presentation.splash
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -13,6 +15,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 
@@ -59,22 +62,35 @@ fun SplashScreen(
         }
     }
 
-    /** UI Layout Box - Like FrameLayout, stacks children on top of each other */
     Box(
-            modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.primary),
-            contentAlignment = Alignment.Center // Center all children
+        modifier = Modifier
+            .fillMaxSize()
+            .background(MaterialTheme.colorScheme.primary),
+        contentAlignment = Alignment.Center
     ) {
-        Text(
+        // Row centers both horizontally
+        androidx.compose.foundation.layout.Row(
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
                 text = "Welcome",
                 fontSize = 32.sp,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.onPrimary
-        )
+            )
 
-        // Show loading indicator at bottom
-        Box(
-                modifier = Modifier.fillMaxSize().align(Alignment.BottomCenter),
-                contentAlignment = Alignment.Center
-        ) { CircularProgressIndicator(color = MaterialTheme.colorScheme.onPrimary) }
+            // Small space between text and loader
+            androidx.compose.foundation.layout.Spacer(
+                modifier = Modifier.width(16.dp)
+            )
+
+            CircularProgressIndicator(
+                color = MaterialTheme.colorScheme.onPrimary,
+                strokeWidth = 3.dp,
+                modifier = Modifier
+                    .size(28.dp) // smaller to align visually with text
+            )
+        }
     }
+
 }

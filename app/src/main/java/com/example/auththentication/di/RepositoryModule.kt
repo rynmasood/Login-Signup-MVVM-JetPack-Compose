@@ -1,6 +1,6 @@
 package com.example.auththentication.di
 
-import com.example.auththentication.data.repository.AuthRepositoryImpl
+import com.example.auththentication.domain.repository.AuthRepositoryImpl
 import com.example.auththentication.domain.repository.AuthRepository
 import dagger.Binds
 import dagger.Module
